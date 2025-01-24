@@ -54,7 +54,24 @@ def get_settings_from_user(settings):
         
     return settings
 
+
+def password_generate(settings):
+    setting_choices = []
+    
+    for key , value in settings.items():
+        if value == True:
+            setting_choices.append(key)
+    
+    password_length = settings['length']
+    final_password = ''
+    
+    for pass_w in range(password_length):
+        pass
+
+    
+    return final_password
+
         
 get_settings_from_user(settings)
 
-print(settings)
+password_generate(settings)
