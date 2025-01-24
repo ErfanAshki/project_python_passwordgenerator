@@ -1,19 +1,8 @@
-import string
+details = [('banana', 'yellow', 14) , ('peach', 'pink', 10) , ('cherry', 'red', 20) , ('watermelon', 'green', 7)]
 
-str1 = string.ascii_letters
-str2 = string.ascii_lowercase
-str3 = string.ascii_uppercase
-str4 = string.digits
-str5 = string.hexdigits
-str6 = string.whitespace
-str7 = string.punctuation
+def sort_based_on_index(list):
+    return list[2]
 
+details.sort(reverse=True, key=sort_based_on_index)
 
-print(str1)
-print(str2)
-print(str3)
-print(str4)
-print(str5)
-print(str6)
-print(str7)
-
+print(details)
