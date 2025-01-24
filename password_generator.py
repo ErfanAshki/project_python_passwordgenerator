@@ -1,8 +1,6 @@
-details = [('banana', 'yellow', 14) , ('peach', 'pink', 10) , ('cherry', 'red', 20) , ('watermelon', 'green', 7)]
+fruits = ['grape', 'cherry', 'melon']
 
-def sort_based_on_index(list):
-    return list[2]
+fruits.insert(1, 'cucumber')
 
-details.sort(reverse=True, key=sort_based_on_index)
+print(fruits)
 
-print(details)
