@@ -1,3 +1,5 @@
+import random
+import string
 
 
 settings = {
@@ -55,15 +57,34 @@ def get_settings_from_user(settings):
     return settings
 
 
+def generate_random_chars(choices):
+    choice = random.choice(choices)
+    
+    if choice == 'upper':
+        return random.choice(string.ascii_uppercase)
+    
+    elif choice == 'lower':
+        return random.choice(string.ascii_lowercase)
+    
+    elif choice == 'number':
+        return random.choice(string.digits)
+    
+    elif choice == 'symbol': 
+        return random.choice(string.punctuation)
+    
+    elif choice == 'space':
+        return random.choice(string.whitespace)
+    
+
+
 def password_generate(settings):
     setting_choices = list(filter(lambda x : settings[x] , ['upper', 'lower', 'number', 'symbol', 'space']))
     
-    print(setting_choices)
     password_length = settings['length']
     final_password = ''
     
     for pass_w in range(password_length):
-        pass
+        final_password += generate_random_chars(setting_choices)
 
     
     return final_password
@@ -71,4 +92,4 @@ def password_generate(settings):
         
 get_settings_from_user(settings)
 
-password_generate(settings)
+print(password_generate(settings))
