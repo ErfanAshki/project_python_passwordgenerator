@@ -14,7 +14,8 @@ MAXIMUM_LENGTH = 25
 
 def get_valid_options_for_settings(option, default):
     while True:
-        user_setting = input(f"{option} include ? default is : {default} . (y:yes - n:no - enter:default) ")
+        user_setting = input(f"{option} include ? default is : {default} ."
+                            " (y:yes - n:no - enter:default) ")
 
         if user_setting == '':
             return default
@@ -27,7 +28,8 @@ def get_valid_options_for_settings(option, default):
 
 def get_password_length(option, default):
     while True:
-        user_input = input(f"Enter your length (password must be in range ({MINIMUM_LENGTH},{MAXIMUM_LENGTH})) :  default is = {default} . (enter:default) ")
+        user_input = input(f"Enter your length (password must be in range ({MINIMUM_LENGTH},{MAXIMUM_LENGTH})) :  "
+                           f"default is = {default} . (enter:default) ")
 
         if user_input == '':
             return default
