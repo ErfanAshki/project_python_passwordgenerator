@@ -8,6 +8,7 @@ settings = {
     'space' : False , 
     'length' : 10
 }
+MINIMUM_LENGTH = 6
 
 
 def get_valid_options_for_settings(option, default):
@@ -21,6 +22,20 @@ def get_valid_options_for_settings(option, default):
             return user_setting == 'y'
         
         print('Invalid input , Please try again .')
+        
+
+def get_password_length(option, default):
+    while True:
+        user_input = input(f"Enter your length (minimum length is : {MINIMUM_LENGTH}) :  default is : {default} . (enter:default) ")
+
+        if user_input == '':
+            return default
+        
+        if user_input.isdigit() and int(user_input) >= MINIMUM_LENGTH :
+            return int(user_input)
+        
+        print('Invalid input or short number .')
+        print('Try again')
 
 
 def get_settings_from_user(settings):
@@ -29,7 +44,9 @@ def get_settings_from_user(settings):
         if option != 'length': 
             user_choice = get_valid_options_for_settings(option , default)
             settings[option] = user_choice
-            
+        else:
+            user_length = get_password_length(option, default)
+            settings[option] = user_length
         
     return settings
 
