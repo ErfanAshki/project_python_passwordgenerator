@@ -97,12 +97,27 @@ def password_generate(settings):
     
     return final_password
 
+
+def password_generate_loop(settings):
+    while True:
+        print('-' * 20)
+        print(f"Generated password : {password_generate(settings)}")
+
+        while True:
+            want_another_password = input('Do you want another password ? (y:yes - n:no - Enter:y) ')
+            if want_another_password in ['y', 'n', '']:
+                if want_another_password == 'n':
+                    return
+                break
+            else:
+                print('Invalid input . please choose from y , n , Enter')
+
+
 def run():       
     clear_screen_and_welcome_message()
     print('-' * 20)
-    get_settings_from_user(settings)
-    print('-' * 20)
-    print(f"Generated password : {password_generate(settings)}")
+    password_generate_loop(get_settings_from_user(settings))
+    
     
 
 run()
