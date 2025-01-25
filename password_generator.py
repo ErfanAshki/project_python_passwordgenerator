@@ -1,5 +1,6 @@
 import random
 import string
+import os
 
 
 settings = {
@@ -12,6 +13,13 @@ settings = {
 }
 MINIMUM_LENGTH = 6
 MAXIMUM_LENGTH = 25
+
+
+def clear_screen_and_welcome_message():
+    os.system('cls')
+    print('Welcome to password generate app :))')
+    print('Enter your settings until we create a random password for you .')
+
 
 
 def get_valid_options_for_settings(option, default):
@@ -89,7 +97,13 @@ def password_generate(settings):
     
     return final_password
 
-        
-get_settings_from_user(settings)
+def run():       
+    clear_screen_and_welcome_message()
+    print('-' * 20)
+    get_settings_from_user(settings)
+    print('-' * 20)
+    print(f"Generated password : {password_generate(settings)}")
+    
 
-print(password_generate(settings))
+run()
+
