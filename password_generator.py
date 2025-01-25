@@ -22,6 +22,13 @@ def clear_screen_and_welcome_message():
 
 
 
+def end_of_project():
+    print()
+    print('Thanks for choosing us .')
+    print('*' * 10 , 'Developer : Erfan Ashki - email : Erfanbayern111@gmail.com' , '*' * 10)
+
+
+
 def get_valid_options_for_settings(option, default):
     while True:
         user_setting = input(f"{option} include ? default is : {default} ."
@@ -132,8 +139,7 @@ def run():
     print('-' * 20)
     ask_change_settings_or_not(settings)
     password_generate_loop(settings)
-    
+    end_of_project()
     
 
 run()
-
