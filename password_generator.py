@@ -65,6 +65,20 @@ def get_settings_from_user(settings):
     return settings
 
 
+def ask_change_settings_or_not(settings):
+    while True:
+        user_choice = input('Do you want to change settings or stay as a default ? (y:yes - n:no - Enter:yes) ')
+        
+        if user_choice in ['y', 'n', '']:
+            if user_choice in ['y', '']:
+                print('*' * 10, 'Change Setting', '*' * 10)
+                get_settings_from_user(settings)
+            break
+        else:
+            print('Invalid Input , please try again')
+
+
+
 def generate_random_chars(choices):
     choice = random.choice(choices)
     
@@ -116,7 +130,8 @@ def password_generate_loop(settings):
 def run():       
     clear_screen_and_welcome_message()
     print('-' * 20)
-    password_generate_loop(get_settings_from_user(settings))
+    ask_change_settings_or_not(settings)
+    password_generate_loop(settings)
     
     
 
